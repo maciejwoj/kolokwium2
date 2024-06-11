@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\kol2.props" />
+</Project>
