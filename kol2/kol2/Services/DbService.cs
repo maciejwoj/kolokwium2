@@ -67,9 +67,7 @@ public async Task<List<BackpackDTO>> AddItems(int characterId, List<int> itemsLi
     }
     
     int totalNewItemsWeight = items.Sum(i => i.Weight);
-    
-    int currentBackpackWeight = character.Backpacks.Sum(b => b.Item.Weight * b.Amount);
-    
+
     if (character.CurrentWeight + totalNewItemsWeight > character.MaxWeight)
     {
         throw new InvalidOperationException("not enough space");
