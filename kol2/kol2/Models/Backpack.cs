@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace kol2.Models;
 
-[Table("Backpack")]
+[Table("backpack")]
 [PrimaryKey(nameof(CharacterId), nameof(ItemId))]
 public class Backpack
 {

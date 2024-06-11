@@ -19,8 +19,6 @@ public class CharacterController : ControllerBase
     public async Task<IActionResult> GetCharacter(int characterId)
     {
         var character = await _dbService.GetCharacterData(characterId);
-        if (character == null)
-            return NotFound();
         return Ok(character);
     }
 
@@ -30,11 +28,9 @@ public class CharacterController : ControllerBase
         try
         {
             var backpackItems = await _dbService.AddItems(characterId, itemsList);
-            if (backpackItems == null)
-                return NotFound();
             return Ok(backpackItems);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             return BadRequest();
         }

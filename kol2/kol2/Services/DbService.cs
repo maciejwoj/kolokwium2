@@ -15,13 +15,13 @@ public class DbService : IDbService
         _context = context;
     }
 
-    public async Task<CharacterDTO> GetCharacterData(int Id)
+    public async Task<CharacterDTO> GetCharacterData(int characterId)
     {
         var character = await _context.Characters
             .Include(c => c.Backpacks)
             .ThenInclude(b => b.Item)
             .Include(c => c.CharacterTitles)
-            .FirstOrDefaultAsync(c => c.Id == Id);
+            .FirstOrDefaultAsync(c => c.Id == characterId);
         
         if (character == null)
         {

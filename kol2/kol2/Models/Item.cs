@@ -8,6 +8,7 @@ public class Item
     public int Id { get; set; }
 
     [MaxLength(100)]
+    [Required]
     public String Name { get; set; } = string.Empty;
     public int Weight { get; set; }
     public ICollection<Backpack> Backpacks { get; set; } = new HashSet<Backpack>();
